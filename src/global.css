@@ -1,0 +1,20 @@
+:root {
+	border: none;
+	box-sizing: border-box;
+	font-family: 'Maison Neue', sans-serif;
+	outline: none;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+input,
+textarea {
+	border: none;
+	font-family: 'Maison Neue', sans-serif;
+	outline: none;
+}

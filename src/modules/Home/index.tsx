@@ -1,23 +1,17 @@
 import React, {useState} from 'react';
-import Logo from '../../assets/logo.svg';
-import Background from '../../assets/background.png';
+import {useMediaQuery} from '../../hooks';
 import SearchIcon from '../../assets/search-icon.png';
-import {SearchInput} from '../../components';
+import {SearchInput, Header} from '../../components';
 import {Restaurants} from '../Restaurants';
 import './styles.css';
 
 export const Home = () => {
+	const matches = useMediaQuery('(max-width: 767px)');
 	const [search, setSearch] = useState('');
 
 	return (
 		<main className='home-section'>
-			<header style={{backgroundImage: `url('${Background}')`}}>
-				<Logo />
-				<aside>
-					<h1>Descubra novos sabores</h1>
-					<p>Aqui eu converso com você sobre nossa proposta</p>
-				</aside>
-			</header>
+			<Header />
 
 			<section className='section-content'>
 				<article className='search'>
@@ -27,9 +21,24 @@ export const Home = () => {
 						onChange={e => {
 							setSearch(e.currentTarget.value);
 						}}
+						maxLength={30}
 					/>
-					<div>
-						<h1>Restaurantes</h1>
+					<div
+						className={`result-container ${
+							matches ? 'result-container-mobile' : ''
+						}`}
+					>
+						{search ? (
+							<section className='search-result'>
+								<h1>Restaurantes</h1>
+								<div>
+									<p>Resultados para: </p>
+									<h2>{search}</h2>
+								</div>
+							</section>
+						) : (
+							<h1>Restaurantes</h1>
+						)}
 						<Restaurants search={search} />
 					</div>
 				</article>

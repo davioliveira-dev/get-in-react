@@ -9,3 +9,7 @@ section.restaurants {
 section.restaurants.restaurants-loading {
 	grid-template-columns: 1fr;
 }
+
+section.restaurants.restaurants-mobile {
+	grid-template-columns: 1fr;
+}

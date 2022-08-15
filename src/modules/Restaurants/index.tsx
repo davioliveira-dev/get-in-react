@@ -1,5 +1,6 @@
 import {useQuery} from '@tanstack/react-query';
-import React, {useState} from 'react';
+import React from 'react';
+import {useMediaQuery} from '../../hooks';
 import {listRestaurants} from '../../api/restaurants';
 import {RestaurantCard, Loading} from '../../components';
 import './styles.css';
@@ -9,9 +10,10 @@ type Props = {
 };
 
 export const Restaurants = (props: Props) => {
+	const matches = useMediaQuery('(max-width: 767px)');
 	const {search} = props;
-	const [page, setPage] = useState(1);
-	const [limit, setLimit] = useState(10);
+	const page = 1;
+	const limit = 10;
 
 	const {data: response, isLoading} = useQuery(
 		['restaurants', {page, limit, search}],
@@ -22,7 +24,9 @@ export const Restaurants = (props: Props) => {
 
 	return (
 		<section
-			className={`restaurants ${isLoading ? 'restaurants-loading' : ''}`}
+			className={`restaurants ${isLoading ? 'restaurants-loading' : ''} ${
+				matches ? 'restaurants-mobile' : ''
+			}`}
 		>
 			{Array.isArray(restaurants) && !isLoading ? (
 				restaurants.map(restaurant => (

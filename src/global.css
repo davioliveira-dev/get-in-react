@@ -5,7 +5,8 @@
 	outline: none;
 }
 
-body {
+body, #root {
+	box-sizing: border-box;
 	height: 100%;
 	margin: 0;
 	padding: 0;

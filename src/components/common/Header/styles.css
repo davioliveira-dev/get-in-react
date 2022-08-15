@@ -1,0 +1,57 @@
+header {
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 40vh;
+}
+
+header > svg {
+	margin: 50px 0 0 120px;
+}
+
+header aside {
+	margin-top: 20px;
+}
+
+header aside h1 {
+	font-size: 2rem;
+	margin-right: 120px;
+}
+
+header aside p {
+	color: #676666;
+	font-size: 1.125rem;
+	margin-left: 40px;
+	text-align: right;
+	width: 70%;
+}
+
+header.mobile-header {
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+
+header.mobile-header svg {
+	margin: 0;
+}
+
+header.mobile-header aside {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+header.mobile-header aside h1 {
+	margin: 0;
+}
+
+header.mobile-header aside p {
+	color: white;
+	margin: 10px 0;
+	width: auto;
+}

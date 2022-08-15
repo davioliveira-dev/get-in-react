@@ -6,6 +6,7 @@ module.exports = {
 	devtool: 'source-map',
 	mode: 'development',
 	output: {
+		publicPath: '/',
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'bundle.js',
 	},
